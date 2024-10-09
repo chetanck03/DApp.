@@ -14,7 +14,8 @@ export const uploadVoterImage = async (file) => {
         'Content-Type': 'multipart/form-data'
       }
     };
-    const res = await axios.post("http://localhost:3000/api/postVoterImage", formData, config);
+    // const res = await axios.post("http://localhost:3000/api/postVoterImage", formData, config);
+    const res = await axios.post("https://d-app-dc5n.vercel.app/postVoterImage", formData, config);
     console.log(res)
     
     if (res.data.message === "successful") { 

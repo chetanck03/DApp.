@@ -64,7 +64,8 @@ export const getWeb3State = async () => {
         const message = "Welcome to Voting Dapp. You accept our terms and condition";
         const signature = await signer.signMessage(message);
         const dataSignature = { signature };
-        const res = await axios.post(`http://localhost:3000/api/authentication?accountAddress=${selectedAccount}`, dataSignature);
+        // const res = await axios.post(`http://localhost:3000/api/authentication?accountAddress=${selectedAccount}`, dataSignature);
+        const res = await axios.post(`https://d-app-dc5n.vercel.app/api/authentication?accountAddress=${selectedAccount}`, dataSignature);
         localStorage.setItem("token", res.data.token);
 
         const contractInstance = new ethers.Contract(contractAddress, abi, signer);
