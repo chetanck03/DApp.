@@ -11,7 +11,13 @@ const authenticationRoute = require("./routes/authenticationRoute")
 const candidateRoutes = require("./routes/candidateRoutes")
 const voterRoutes = require("./routes/voterRoutes")
 
-app.use(cors())
+app.use(cors(
+    {
+        origin: ["https://d-app-dc5n.vercel.app/"],
+        methods: ["POST","GET"],
+        credentials:true
+    }
+))
 app.use(express.json())
 
 app.use("/api",authenticationRoute)
